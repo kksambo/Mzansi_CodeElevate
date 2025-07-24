@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mzansi CodeElevate | Empowering Innovation Through Code</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f4f7fa;
+      color: #212529;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* Navbar */
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #00695c !important;
+      /* Deep Teal */
+      letter-spacing: 2px;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+      color: #004d40;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover,
+    .navbar-light .navbar-nav .nav-link.active {
+      color: #009688;
+    }
+
+    .btn-primary {
+      background-color: #009688;
+      border: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #00796b;
+      box-shadow: 0 0 12px #004d40cc;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #004d40 0%, #26a69a 100%);
+      color: white;
+      padding: 8rem 0 6rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(to top, #004d40, transparent);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-weight: 900;
+      font-size: 3.8rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      margin-bottom: 1rem;
+    }
+
+    .hero p.lead {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Section Titles */
+    .section-title {
+      color: #004d40;
+      font-weight: 800;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: #009688;
+      display: block;
+      margin: 0.5rem auto 0 auto;
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    #about img {
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0, 77, 64, 0.25);
+      transition: transform 0.4s ease;
+    }
+
+    #about img:hover {
+      transform: scale(1.05);
+    }
+
+    #about h3 {
+      color: #00796b;
+      font-weight: 700;
+    }
+
+    #about ul li {
+      font-weight: 600;
+      color: #004d40;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Cards */
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .card .card-title {
+      color: #00796b;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Services */
+    #services div {
+      transition: background-color 0.3s ease;
+      cursor: default;
+      border-radius: 15px;
+    }
+
+    #services div:hover {
+      background-color: #e0f2f1;
+      box-shadow: 0 10px 30px rgba(0, 150, 136, 0.2);
+      cursor: pointer;
+    }
+
+    #services h4 {
+      color: #004d40;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    /* Blog */
+    #blog .card-img-top {
+      border-radius: 15px 15px 0 0;
+      transition: transform 0.4s ease;
+    }
+
+    #blog .card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+
+    #blog .card-title {
+      font-weight: 700;
+      color: #00796b;
+    }
+
+    /* Contact Form */
+    #contact form {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    #contact form:hover {
+      box-shadow: 0 20px 40px rgba(0, 150, 136, 0.2);
+    }
+
+    #contact label {
+      font-weight: 600;
+      color: #004d40;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #004d40;
+      color: #b2dfdb;
+      padding: 2rem 0;
+      font-size: 0.95rem;
+    }
+
+    footer a.footer-link {
+      color: #80cbc4;
+      transition: color 0.3s ease;
+    }
+
+    footer a.footer-link:hover {
+      color: #4db6ac;
+      text-decoration: underline;
+    }
+
+    /* Scroll to Top Button */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 40px;
+      right: 40px;
+      background: #009688;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.5rem;
+      padding: 0.6rem 0.7rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 9999;
+    }
+
+    #scrollTopBtn.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top" data-aos="fade-down">
+    <div class="container">
+      <a class="navbar-brand" href="#">Mzansi CodeElevate</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav fw-semibold">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item">
+            <a class="btn btn-primary ms-lg-3 rounded-pill px-4" href="#courses">Get Started</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-duration="1500">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-3">Empower Your Future with Mzansi CodeElevate</h1>
+      <p class="lead mb-5 mx-auto" style="max-width: 700px;">
+        South Africa’s leading online coding academy. Learn coding, AI, cloud computing, cybersecurity, and data science at your own pace.
+      </p>
+      <a href="#courses" class="btn btn-lg btn-light fw-bold px-5 rounded-pill shadow">Explore Courses</a>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="section-title text-center" data-aos="fade-up">About Us</h2>
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80"
+            alt="About Mzansi CodeElevate" class="img-fluid rounded shadow" />
+        </div>
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="400">
+          <h3 class="fw-bold">Our Mission & Vision</h3>
+          <p>
+            At Mzansi CodeElevate, we empower individuals and businesses through accessible, high-quality coding education and innovative digital solutions. Our vision is to bridge the digital skills gap in South Africa and drive digital transformation.
+          </p>
+          <h5 class="mt-4">Meet Our Founders</h5>
+          <ul class="list-unstyled">
+            <li><i class="bi bi-person-fill text-primary me-2"></i><strong>Sambo SL</strong> – Managing Director</li>
+            <li><i class="bi bi-person-fill text-primary me-2"></i><strong>Pilane TV</strong> – Director</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="section-title text-center" data-aos="fade-up">Our Courses</h2>
+      <div class="row g-4">
+        <!-- Course Card -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="card shadow-sm h-100 border-0">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-primary fw-bold">Online Coding Bootcamp</h5>
+              <p class="card-text flex-grow-1">
+                Learn HTML, CSS, JavaScript, and Python through hands-on projects and expert guidance.
+              </p>
+              <p><strong>Duration:</strong> 12 Weeks</p>
+              <button type="button" class="btn btn-primary mt-auto rounded-pill px-4 btn-learn-more" data-course="Online Coding Bootcamp">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Course Card -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="card shadow-sm h-100 border-0">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-primary fw-bold">AI Agents Development</h5>
+              <p class="card-text flex-grow-1">
+                Understand AI fundamentals and build intelligent agents using Python and machine learning.
+              </p>
+              <p><strong>Duration:</strong> 8 Weeks</p>
+              <button type="button" class="btn btn-primary mt-auto rounded-pill px-4 btn-learn-more" data-course="AI Agents Development">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Course Card -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="card shadow-sm h-100 border-0">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-primary fw-bold">Cloud Computing Fundamentals</h5>
+              <p class="card-text flex-grow-1">
+                Explore cloud platforms like AWS, Azure, and GCP; deploy applications and learn cloud security basics.
+              </p>
+              <p><strong>Duration:</strong> 6 Weeks</p>
+              <button type="button" class="btn btn-primary mt-auto rounded-pill px-4 btn-learn-more" data-course="Cloud Computing Fundamentals">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Course Card -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+          <div class="card shadow-sm h-100 border-0">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-primary fw-bold">Cybersecurity Essentials</h5>
+              <p class="card-text flex-grow-1">
+                Learn about network security, ethical hacking, encryption, and best practices to safeguard digital assets.
+              </p>
+              <p><strong>Duration:</strong> 6 Weeks</p>
+              <button type="button" class="btn btn-primary mt-auto rounded-pill px-4 btn-learn-more" data-course="Cybersecurity Essentials">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Course Card -->
+        <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="500">
+          <div class="card shadow-sm h-100 border-0">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-primary fw-bold">Data Science and Analytics</h5>
+              <p class="card-text flex-grow-1">
+                Dive into data analysis, machine learning, and visualization techniques to uncover insights.
+              </p>
+              <p><strong>Duration:</strong> 8 Weeks</p>
+              <button type="button" class="btn btn-primary mt-auto rounded-pill px-4 btn-learn-more" data-course="Data Science and Analytics">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-5">
+    <div class="container">
+      <h2 class="section-title text-center" data-aos="fade-up">Our Services</h2>
+      <div class="row text-center g-4">
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
+          <div class="p-4 bg-white rounded shadow-sm h-100">
+            <i class="bi bi-code-slash text-success fs-1 mb-3"></i>
+            <h4 class="fw-bold text-success">Custom Software Development</h4>
+            <p>Web and mobile apps tailored to your business needs, using the latest technologies.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+          <div class="p-4 bg-white rounded shadow-sm h-100">
+            <i class="bi bi-gear-fill text-success fs-1 mb-3"></i>
+            <h4 class="fw-bold text-success">Technical Consulting</h4>
+            <p>Expert advice to help you choose the right technology solutions and strategy.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="flip-left" data-aos-delay="300">
+          <div class="p-4 bg-white rounded shadow-sm h-100">
+            <i class="bi bi-shield-lock-fill text-success fs-1 mb-3"></i>
+            <h4 class="fw-bold text-success">Software Maintenance & Support</h4>
+            <p>Reliable support and ongoing updates to keep your systems secure and up-to-date.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="section-title text-center" data-aos="fade-up">Latest Articles</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card shadow-sm h-100 border-0 rounded-4">
+            <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=800&q=60"
+              class="card-img-top rounded-top-4" alt="Blog Post 1" />
+            <div class="card-body">
+              <h5 class="card-title">Top 5 Programming Languages to Learn in 2025</h5>
+              <p class="card-text">Explore the languages that will shape the future of software development.</p>
+              <a href="#" class="btn btn-success btn-sm rounded-pill px-4">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card shadow-sm h-100 border-0 rounded-4">
+            <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=800&q=60"
+              class="card-img-top rounded-top-4" alt="Blog Post 2" />
+            <div class="card-body">
+              <h5 class="card-title">How AI is Changing the Coding Landscape</h5>
+              <p class="card-text">A deep dive into the AI tools reshaping programming and software development.</p>
+              <a href="#" class="btn btn-success btn-sm rounded-pill px-4">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card shadow-sm h-100 border-0 rounded-4">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=60"
+              class="card-img-top rounded-top-4" alt="Blog Post 3" />
+            <div class="card-body">
+              <h5 class="card-title">Cloud Computing: What You Need to Know</h5>
+              <p class="card-text">An introduction to cloud computing and why it matters for every developer.</p>
+              <a href="#" class="btn btn-success btn-sm rounded-pill px-4">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="section-title text-center mb-4" data-aos="fade-up">Get In Touch</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <form id="contactForm" data-aos="fade-up" data-aos-delay="200" novalidate>
+            <div class="mb-3">
+              <label for="name" class="form-label fw-semibold">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Your full name" required />
+              <div class="invalid-feedback">
+                Please enter your name.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label fw-semibold">Email address</label>
+              <input type="email" class="form-control" id="email" placeholder="name@example.com" required />
+              <div class="invalid-feedback">
+                Please enter a valid email.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label fw-semibold">Message</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Write your message here..." required></textarea>
+              <div class="invalid-feedback">
+                Please enter a message.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success w-100 rounded-pill fw-bold fs-5">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p>© 2025 Mzansi CodeElevate (Pty) Ltd. All rights reserved.</p>
+      <p>
+        <a href="#" class="footer-link me-3">Privacy Policy</a> |
+        <a href="#" class="footer-link ms-3">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top Button -->
+  <button id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Course Details Modal -->
+  <div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="courseModalLabel">Course Title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="courseModalBody">
+          Course details will appear here.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+          <a href="#contact" class="btn btn-success rounded-pill px-4" data-bs-dismiss="modal">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: 'ease-in-out',
+    });
+
+    // Scroll to top button functionality
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Smooth scrolling for nav links & buttons with hash href
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Learn More buttons functionality - open modal with course details
+    const courseDetails = {
+      "Online Coding Bootcamp": `
+        <p>Master the fundamentals of web development with hands-on projects using HTML, CSS, JavaScript, and Python.</p>
+        <ul>
+          <li>Introduction to Programming</li>
+          <li>Front-End Development</li>
+          <li>Back-End Basics</li>
+          <li>Project: Build a Personal Portfolio Website</li>
+          <li>Duration: 12 weeks</li>
+        </ul>
+      `,
+      "AI Agents Development": `
+        <p>Learn to create intelligent AI agents using Python, machine learning algorithms, and AI frameworks.</p>
+        <ul>
+          <li>AI Fundamentals</li>
+          <li>Machine Learning Basics</li>
+          <li>Building AI Agents</li>
+          <li>Project: Chatbot Development</li>
+          <li>Duration: 8 weeks</li>
+        </ul>
+      `,
+      "Cloud Computing Fundamentals": `
+        <p>Understand cloud infrastructure and services using AWS, Azure, and Google Cloud Platform.</p>
+        <ul>
+          <li>Cloud Concepts</li>
+          <li>Deploying Applications</li>
+          <li>Cloud Security Basics</li>
+          <li>Project: Deploy a Web App to the Cloud</li>
+          <li>Duration: 6 weeks</li>
+        </ul>
+      `,
+      "Cybersecurity Essentials": `
+        <p>Gain knowledge about network security, ethical hacking, encryption, and protecting digital information.</p>
+        <ul>
+          <li>Network Security</li>
+          <li>Ethical Hacking Basics</li>
+          <li>Encryption Methods</li>
+          <li>Project: Penetration Testing Simulation</li>
+          <li>Duration: 6 weeks</li>
+        </ul>
+      `,
+      "Data Science and Analytics": `
+        <p>Dive into data analysis, statistics, machine learning, and visualization tools to extract meaningful insights.</p>
+        <ul>
+          <li>Data Wrangling & Cleaning</li>
+          <li>Exploratory Data Analysis</li>
+          <li>Machine Learning Models</li>
+          <li>Project: Data Visualization Dashboard</li>
+          <li>Duration: 8 weeks</li>
+        </ul>
+      `
+    };
+
+    const modalTitle = document.getElementById('courseModalLabel');
+    const modalBody = document.getElementById('courseModalBody');
+    const courseModal = new bootstrap.Modal(document.getElementById('courseModal'));
+
+    document.querySelectorAll('.btn-learn-more').forEach(button => {
+      button.addEventListener('click', () => {
+        const course = button.getAttribute('data-course');
+        modalTitle.textContent = course;
+        modalBody.innerHTML = courseDetails[course] || 'Details coming soon.';
+        courseModal.show();
+      });
+    });
+
+    // Contact form validation and simulated submission
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!contactForm.checkValidity()) {
+        contactForm.classList.add('was-validated');
+        return;
+      }
+      // Simulate form submission
+      alert('Thank you for contacting us! We will get back to you shortly.');
+      contactForm.reset();
+      contactForm.classList.remove('was-validated');
+    });
+  </script>
+
+</body>
+
+</html>
